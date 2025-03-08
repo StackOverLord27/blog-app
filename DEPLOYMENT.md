@@ -137,6 +137,20 @@ If you're having issues with the deployment, check the following:
 2. Verify that all environment variables are set correctly
 3. Make sure the build command and output directory are configured correctly
 
+#### Permission Denied Error
+
+If you encounter a permission error like:
+```
+sh: line 1: /vercel/path0/client/node_modules/.bin/react-scripts: Permission denied
+Error: Command "npm run build" exited with 126
+```
+
+This is a common issue with React applications on Vercel. To fix it:
+
+1. Make sure you're using the custom build script approach with `vercel-build.sh`
+2. If you're still having issues, try deploying through the Vercel Dashboard instead of the CLI
+3. You can also try setting the `CI=false` environment variable in your build command
+
 ## Updating Your Deployment
 
 To update your deployment after making changes to your code:
