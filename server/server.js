@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const path = require('path');
-const connectDB = require('./config/db');
 
 // Routes
 const authRoutes = require('./routes/authRoutes');
@@ -24,7 +24,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Connect to MongoDB
-connectDB();
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
 // Routes
 app.use('/api/auth', authRoutes);

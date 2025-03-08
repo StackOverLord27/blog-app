@@ -11,6 +11,11 @@ A full-stack blog application built with Node.js, Express, MongoDB, and React.
 - Search and filter blogs by title, content, and tags
 - Responsive design
 
+## Project Structure
+
+- `client/` - React.js frontend
+- `server/` - Node.js backend
+
 ## Local Development
 
 ### Prerequisites
@@ -36,9 +41,9 @@ npm install
 3. Set up environment variables:
    - Create a `.env` file in the server directory with the following variables:
      ```
-     MONGO_URI=your_mongodb_connection_string
-     JWT_SECRET=your_jwt_secret
      PORT=5000
+     MONGO_URI=mongodb://localhost:27017/blog-app
+     JWT_SECRET=your_jwt_secret_key
      NODE_ENV=development
      CLIENT_URL=http://localhost:3001
      ```
@@ -100,30 +105,6 @@ npm run start:legacy
 
 7. Once deployed, you can access your application at the URL provided by Vercel
 
-## License
-
-MIT
-
-## Project Structure
-
-- `client/` - React.js frontend
-- `server/` - Node.js backend
-
-## Technologies Used
-
-- **Frontend**:
-  - React.js
-  - React Router
-  - Axios
-  - React Quill (rich text editor)
-
-- **Backend**:
-  - Node.js
-  - Express.js
-  - MongoDB with Mongoose
-  - JSON Web Tokens (JWT) for authentication
-  - Multer for file uploads
-
 ## API Endpoints
 
 ### Authentication
@@ -142,4 +123,19 @@ MIT
 ### Comments
 - `GET /api/comments/blog/:blogId` - Get comments for a blog
 - `POST /api/comments/blog/:blogId` - Create a comment
-- `DELETE /api/comments/:id` - Delete a comment 
+- `DELETE /api/comments/:id` - Delete a comment
+
+## Technologies Used
+
+- **Frontend**:
+  - React.js
+  - React Router
+  - Axios
+  - React Quill (rich text editor)
+
+- **Backend**:
+  - Node.js
+  - Express.js
+  - MongoDB with Mongoose
+  - JSON Web Tokens (JWT) for authentication
+  - Multer for file uploads 

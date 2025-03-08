@@ -31,7 +31,15 @@ This guide will walk you through the process of deploying the blog application t
    JWT_SECRET=your-secure-jwt-secret
    ```
 
-3. Make sure all environment variables are set correctly in both `.env` and `.env.production` files
+3. Update the client URL in `.env` file:
+   ```
+   CLIENT_URL=https://your-vercel-app-name.vercel.app
+   ```
+
+4. Update the API URL in `.env.production` file:
+   ```
+   REACT_APP_API_URL=https://your-vercel-app-name.vercel.app/api
+   ```
 
 ## Step 3: Deploy to Vercel
 
