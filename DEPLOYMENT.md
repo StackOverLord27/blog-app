@@ -123,11 +123,28 @@ If you're having issues connecting to MongoDB, check the following:
 
 ### API Connection Issues
 
-If the frontend can't connect to the API, check the following:
+If the frontend can't communicate with the backend API, try these troubleshooting steps:
 
-1. Make sure the `REACT_APP_API_URL` environment variable is set correctly
-2. Verify that the API routes are working correctly
-3. Check the CORS configuration in the server
+1. **Check API URL Configuration**:
+   - In production, the client should use `/api` as the base URL
+   - Make sure `REACT_APP_API_URL` is set to `/api` in your `.env.production` file
+   - Verify that the API routes in `vercel.json` are correctly configured
+
+2. **Check CORS Configuration**:
+   - Verify that the server's CORS configuration allows requests from your client domain
+   - Check the browser console for CORS errors
+   - Try accessing the API directly (e.g., `https://your-app.vercel.app/api/health`) to see if it responds
+
+3. **Debug API Endpoints**:
+   - Access the debug endpoint at `https://your-app.vercel.app/api/debug` to check environment variables
+   - Check the Vercel function logs for any errors in the API routes
+   - Verify that MongoDB is connected properly
+
+4. **Common Solutions**:
+   - Redeploy the application after making changes
+   - Make sure all environment variables are set correctly in the Vercel dashboard
+   - Try using a different browser or clearing your browser cache
+   - Check if the API works in incognito/private browsing mode
 
 ### Deployment Issues
 
